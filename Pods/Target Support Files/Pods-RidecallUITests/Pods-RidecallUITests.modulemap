@@ -1,0 +1,6 @@
+framework module Pods_RidecallUITests {
+  umbrella header "Pods-RidecallUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

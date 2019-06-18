@@ -3,18 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0EDE4F11A65E364AE4FAF57E /* Pods_RidecallUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF19E130A522B50933A96AF8 /* Pods_RidecallUITests.framework */; };
+		457A399E4DE096C742F62C70 /* Pods_RidecallTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3565283A1F4A4F2E0C1EBC73 /* Pods_RidecallTests.framework */; };
+		4CF08EF20DAAB5B0DF87FDDF /* Pods_Ridecall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 231FB7E9AFDF7F5D904FDFAA /* Pods_Ridecall.framework */; };
 		5903527B22B870F900FA1056 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903527A22B870F900FA1056 /* AppDelegate.swift */; };
 		5903527D22B870F900FA1056 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903527C22B870F900FA1056 /* ViewController.swift */; };
 		5903528022B870F900FA1056 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5903527E22B870F900FA1056 /* Main.storyboard */; };
 		5903528322B870F900FA1056 /* Ridecall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5903528122B870F900FA1056 /* Ridecall.xcdatamodeld */; };
 		5903528522B870FD00FA1056 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5903528422B870FD00FA1056 /* Assets.xcassets */; };
 		5903528822B870FD00FA1056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5903528622B870FD00FA1056 /* LaunchScreen.storyboard */; };
-		5903529322B870FE00FA1056 /* RidecallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903529222B870FE00FA1056 /* RidecallTests.swift */; };
-		5903529E22B870FE00FA1056 /* RidecallUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5903529D22B870FE00FA1056 /* RidecallUITests.swift */; };
+		590352AC22B8766C00FA1056 /* vehicles_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 590352AB22B8766C00FA1056 /* vehicles_data.json */; };
+		590352AE22B8885A00FA1056 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590352AD22B8885A00FA1056 /* Vehicle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C2C9CFE61756DF200454441 /* Pods-Ridecall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ridecall.release.xcconfig"; path = "Target Support Files/Pods-Ridecall/Pods-Ridecall.release.xcconfig"; sourceTree = "<group>"; };
+		231FB7E9AFDF7F5D904FDFAA /* Pods_Ridecall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ridecall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31C76AA76EB70D948354A707 /* Pods-RidecallTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallTests.release.xcconfig"; path = "Target Support Files/Pods-RidecallTests/Pods-RidecallTests.release.xcconfig"; sourceTree = "<group>"; };
+		3565283A1F4A4F2E0C1EBC73 /* Pods_RidecallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidecallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		433B1B93FCCF45AD3779A71A /* Pods-Ridecall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ridecall.debug.xcconfig"; path = "Target Support Files/Pods-Ridecall/Pods-Ridecall.debug.xcconfig"; sourceTree = "<group>"; };
+		48E738C472C71313328AB658 /* Pods-RidecallUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallUITests.release.xcconfig"; path = "Target Support Files/Pods-RidecallUITests/Pods-RidecallUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5903527722B870F900FA1056 /* Ridecall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ridecall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5903527A22B870F900FA1056 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5903527C22B870F900FA1056 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,11 +53,12 @@
 		5903528722B870FD00FA1056 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5903528922B870FD00FA1056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5903528E22B870FE00FA1056 /* RidecallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidecallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5903529222B870FE00FA1056 /* RidecallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidecallTests.swift; sourceTree = "<group>"; };
-		5903529422B870FE00FA1056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5903529922B870FE00FA1056 /* RidecallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidecallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5903529D22B870FE00FA1056 /* RidecallUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RidecallUITests.swift; sourceTree = "<group>"; };
-		5903529F22B870FE00FA1056 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		590352AB22B8766C00FA1056 /* vehicles_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = vehicles_data.json; path = ../../../../Downloads/vehicles_data.json; sourceTree = "<group>"; };
+		590352AD22B8885A00FA1056 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		AD5354070BBCCC7102CD6E87 /* Pods-RidecallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallTests.debug.xcconfig"; path = "Target Support Files/Pods-RidecallTests/Pods-RidecallTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CF19E130A522B50933A96AF8 /* Pods_RidecallUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidecallUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E33DBA4D929EFD942648CC02 /* Pods-RidecallUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallUITests.debug.xcconfig"; path = "Target Support Files/Pods-RidecallUITests/Pods-RidecallUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CF08EF20DAAB5B0DF87FDDF /* Pods_Ridecall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				457A399E4DE096C742F62C70 /* Pods_RidecallTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EDE4F11A65E364AE4FAF57E /* Pods_RidecallUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,9 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				5903527922B870F900FA1056 /* Ridecall */,
-				5903529122B870FE00FA1056 /* RidecallTests */,
-				5903529C22B870FE00FA1056 /* RidecallUITests */,
 				5903527822B870F900FA1056 /* Products */,
+				A97CC775188933FD8822DAA4 /* Pods */,
+				E5BC1DE871BEFDFAF9819453 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +112,7 @@
 		5903527922B870F900FA1056 /* Ridecall */ = {
 			isa = PBXGroup;
 			children = (
+				590352AB22B8766C00FA1056 /* vehicles_data.json */,
 				5903527A22B870F900FA1056 /* AppDelegate.swift */,
 				5903527C22B870F900FA1056 /* ViewController.swift */,
 				5903527E22B870F900FA1056 /* Main.storyboard */,
@@ -106,26 +120,32 @@
 				5903528622B870FD00FA1056 /* LaunchScreen.storyboard */,
 				5903528922B870FD00FA1056 /* Info.plist */,
 				5903528122B870F900FA1056 /* Ridecall.xcdatamodeld */,
+				590352AD22B8885A00FA1056 /* Vehicle.swift */,
 			);
 			path = Ridecall;
 			sourceTree = "<group>";
 		};
-		5903529122B870FE00FA1056 /* RidecallTests */ = {
+		A97CC775188933FD8822DAA4 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5903529222B870FE00FA1056 /* RidecallTests.swift */,
-				5903529422B870FE00FA1056 /* Info.plist */,
+				433B1B93FCCF45AD3779A71A /* Pods-Ridecall.debug.xcconfig */,
+				1C2C9CFE61756DF200454441 /* Pods-Ridecall.release.xcconfig */,
+				AD5354070BBCCC7102CD6E87 /* Pods-RidecallTests.debug.xcconfig */,
+				31C76AA76EB70D948354A707 /* Pods-RidecallTests.release.xcconfig */,
+				E33DBA4D929EFD942648CC02 /* Pods-RidecallUITests.debug.xcconfig */,
+				48E738C472C71313328AB658 /* Pods-RidecallUITests.release.xcconfig */,
 			);
-			path = RidecallTests;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		5903529C22B870FE00FA1056 /* RidecallUITests */ = {
+		E5BC1DE871BEFDFAF9819453 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5903529D22B870FE00FA1056 /* RidecallUITests.swift */,
-				5903529F22B870FE00FA1056 /* Info.plist */,
+				231FB7E9AFDF7F5D904FDFAA /* Pods_Ridecall.framework */,
+				3565283A1F4A4F2E0C1EBC73 /* Pods_RidecallTests.framework */,
+				CF19E130A522B50933A96AF8 /* Pods_RidecallUITests.framework */,
 			);
-			path = RidecallUITests;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 590352A222B870FE00FA1056 /* Build configuration list for PBXNativeTarget "Ridecall" */;
 			buildPhases = (
+				BEE33B16D65ADA0D259A52D9 /* [CP] Check Pods Manifest.lock */,
 				5903527322B870F900FA1056 /* Sources */,
 				5903527422B870F900FA1056 /* Frameworks */,
 				5903527522B870F900FA1056 /* Resources */,
+				29BD604F8FA8010E9619F66E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,6 +174,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 590352A522B870FE00FA1056 /* Build configuration list for PBXNativeTarget "RidecallTests" */;
 			buildPhases = (
+				529C3AA60B1547D4C0F2993D /* [CP] Check Pods Manifest.lock */,
 				5903528A22B870FE00FA1056 /* Sources */,
 				5903528B22B870FE00FA1056 /* Frameworks */,
 				5903528C22B870FE00FA1056 /* Resources */,
@@ -170,6 +193,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 590352A822B870FE00FA1056 /* Build configuration list for PBXNativeTarget "RidecallUITests" */;
 			buildPhases = (
+				110DC4D968B4E144EEE1D627 /* [CP] Check Pods Manifest.lock */,
 				5903529522B870FE00FA1056 /* Sources */,
 				5903529622B870FE00FA1056 /* Frameworks */,
 				5903529722B870FE00FA1056 /* Resources */,
@@ -234,6 +258,7 @@
 			files = (
 				5903528822B870FD00FA1056 /* LaunchScreen.storyboard in Resources */,
 				5903528522B870FD00FA1056 /* Assets.xcassets in Resources */,
+				590352AC22B8766C00FA1056 /* vehicles_data.json in Resources */,
 				5903528022B870F900FA1056 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,11 +279,98 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		110DC4D968B4E144EEE1D627 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RidecallUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		29BD604F8FA8010E9619F66E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ridecall/Pods-Ridecall-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Ridecall/Pods-Ridecall-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Ridecall/Pods-Ridecall-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		529C3AA60B1547D4C0F2993D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RidecallTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEE33B16D65ADA0D259A52D9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ridecall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5903527322B870F900FA1056 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590352AE22B8885A00FA1056 /* Vehicle.swift in Sources */,
 				5903527D22B870F900FA1056 /* ViewController.swift in Sources */,
 				5903527B22B870F900FA1056 /* AppDelegate.swift in Sources */,
 				5903528322B870F900FA1056 /* Ridecall.xcdatamodeld in Sources */,
@@ -269,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5903529322B870FE00FA1056 /* RidecallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +388,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5903529E22B870FE00FA1056 /* RidecallUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +544,7 @@
 		};
 		590352A322B870FE00FA1056 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 433B1B93FCCF45AD3779A71A /* Pods-Ridecall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -452,6 +563,7 @@
 		};
 		590352A422B870FE00FA1056 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C2C9CFE61756DF200454441 /* Pods-Ridecall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -470,6 +582,7 @@
 		};
 		590352A622B870FE00FA1056 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD5354070BBCCC7102CD6E87 /* Pods-RidecallTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +604,7 @@
 		};
 		590352A722B870FE00FA1056 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31C76AA76EB70D948354A707 /* Pods-RidecallTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -512,6 +626,7 @@
 		};
 		590352A922B870FE00FA1056 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E33DBA4D929EFD942648CC02 /* Pods-RidecallUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +647,7 @@
 		};
 		590352AA22B870FE00FA1056 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48E738C472C71313328AB658 /* Pods-RidecallUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
