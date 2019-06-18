@@ -112,17 +112,33 @@
 		5903527922B870F900FA1056 /* Ridecall */ = {
 			isa = PBXGroup;
 			children = (
+				590352B022B8BE3800FA1056 /* Views */,
+				590352AF22B8BE3000FA1056 /* Model */,
 				590352AB22B8766C00FA1056 /* vehicles_data.json */,
 				5903527A22B870F900FA1056 /* AppDelegate.swift */,
-				5903527C22B870F900FA1056 /* ViewController.swift */,
 				5903527E22B870F900FA1056 /* Main.storyboard */,
 				5903528422B870FD00FA1056 /* Assets.xcassets */,
 				5903528622B870FD00FA1056 /* LaunchScreen.storyboard */,
 				5903528922B870FD00FA1056 /* Info.plist */,
 				5903528122B870F900FA1056 /* Ridecall.xcdatamodeld */,
-				590352AD22B8885A00FA1056 /* Vehicle.swift */,
 			);
 			path = Ridecall;
+			sourceTree = "<group>";
+		};
+		590352AF22B8BE3000FA1056 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				590352AD22B8885A00FA1056 /* Vehicle.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		590352B022B8BE3800FA1056 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5903527C22B870F900FA1056 /* ViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A97CC775188933FD8822DAA4 /* Pods */ = {

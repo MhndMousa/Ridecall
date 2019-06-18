@@ -24,7 +24,6 @@ class Vehicle: NSObject {
     var vehicle_pic_absolute_url : String
     var vehicle_type : String
     var vehicle_type_id : NSNumber
-
     init(_ dictionary: [String: Any]) {
         self.id = dictionary["id"] as! NSNumber
         self.is_active = dictionary["is_active"] as! Bool
