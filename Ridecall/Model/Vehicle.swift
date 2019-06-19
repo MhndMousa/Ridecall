@@ -24,6 +24,24 @@ class Vehicle: NSObject {
     var vehicle_pic_absolute_url : String
     var vehicle_type : String
     var vehicle_type_id : NSNumber
+    
+    override init() {
+        self.id = 0
+        self.is_active = false
+        self.is_available = false
+        self.lat = 0
+        self.license_plate_number = ""
+        self.lng  = 0
+        self.pool  = ""
+        self.remaining_mileage = 0
+        self.remaining_range_in_meters = 0
+        self.transmission_mode = ""
+        self.vehicle_make  = ""
+        self.vehicle_pic  = ""
+        self.vehicle_pic_absolute_url  = ""
+        self.vehicle_type  = ""
+        self.vehicle_type_id  = 0
+    }
     init(_ dictionary: [String: Any]) {
         self.id = dictionary["id"] as! NSNumber
         self.is_active = dictionary["is_active"] as! Bool

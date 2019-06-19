@@ -11,11 +11,18 @@ import GoogleMaps
 
 class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
     
+    // MARK:  Variables
+
     var vehicles = [Vehicle]()
     var slides = [Slide]()
+    var markerVehicle = [Vehicle:GMSMarker]()
     let pagingView = UIPageControl()
-    
+    let scrollView = UIScrollView()
+    lazy var mapView = GMSMapView()
+    @IBOutlet weak var gradientView: UIView!
     @IBOutlet weak var infoView: UIView!
+    
+    // MARK:  UIViewController Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,31 +34,37 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
         }
         slides = createSlides()
         createMap()
-        configInfoView()
+        configureScrollView()
         
         
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .default
+    }
     
     // MARK:  Horizontal scroll
-    func configInfoView(){
-        let scrollView = UIScrollView()
+    
+    func configureScrollView(){
         scrollView.delegate  = self
         scrollView.isPagingEnabled = true
         scrollView.showsVerticalScrollIndicator = true
-        
-        scrollView.contentSize = CGSize(width: infoView.layer.bounds.width * 3, height: infoView.layer.bounds.height)
-        scrollView.backgroundColor = .blue
+        scrollView.contentSize = CGSize(width: self.view.layer.bounds.width * 3, height: infoView.layer.bounds.height)
+        scrollView.backgroundColor = .clear
         
         pagingView.numberOfPages = 3
-        pagingView.currentPageIndicatorTintColor = .black
-//        pagingView.pageIndicatorTintColor = .gray
-
-        
-        
-        
+        pagingView.currentPageIndicatorTintColor = UIColor(hex: "349134")
+        pagingView.pageIndicatorTintColor = .gray
         
         infoView.addSubview(scrollView)
         infoView.addSubview(pagingView)
+        infoView.layer.shadowColor = UIColor.black.cgColor
+        infoView.layer.shadowOpacity = 0.4
+        infoView.layer.shadowOffset = .zero
+        infoView.layer.shadowRadius = 5
+        
+//        gradientView.setGradientBackground(colorOne: UIColor(hex: "7eb759")!, colorTwo: UIColor(hex: "ffffff")!)
+        
+
         
         scrollView.translatesAutoresizingMaskIntoConstraints    = false
         scrollView.leadingAnchor.constraint(equalTo: infoView.leadingAnchor).isActive = true
@@ -67,22 +80,38 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
 
         //Add slides
         for i in 0 ..< slides.count {
-            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: infoView.frame.width, height: infoView.frame.height)
+            slides[i].frame = CGRect(x: self.view.layer.bounds.width * CGFloat(i), y: 0,
+                                     width: self.view.layer.bounds.width, height: infoView.frame.height)
             slides[i].backgroundColor = .clear
             scrollView.addSubview(slides[i])
         }
-        
     }
-
+    
+    func createSlides() -> [Slide] {
+        var s = [Slide]()
+        
+        for i in 0..<3 {
+            let slide:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+            slide.reserveButton.layer.cornerRadius = 8
+            slide.vehicle = vehicles[i]
+            slide.populate(vehicles[i])
+            s.append(slide)
+        }
+        return s
+    }
 
     
     // MARK:  Map methods
+    
     func createMap(){
-        // Creates a GMSCameraPosition that tells the map to display the
-        let camera = GMSCameraPosition.camera(withLatitude: 37.7749, longitude: -122.4194, zoom: 11.7)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         
-        // config map
+        
+        // Initialize a camera and posiiton onto at San Fransisco
+        let camera = GMSCameraPosition.camera(withLatitude: 37.7749, longitude: -122.4194, zoom: 11.7)
+         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+        
+        
+        // Configure map with style.json settings
         do {
             // Set the map style by passing the URL of the local file.
             if let styleURL = Bundle.main.url(forResource: "style", withExtension: "json") {
@@ -93,26 +122,16 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
         } catch {
             NSLog("One or more of the map styles failed to load. \(error)")
         }
-        
-      
-        
-        
+
         
         view.insertSubview(mapView, at: 0)
+//        view = mapv
         mapView.translatesAutoresizingMaskIntoConstraints = false
         mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
         mapView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         mapView.delegate = self
-        
-        
-        
-        
-        
-        
-        
-        
 
         // Creates markers in on the map.
         for car in vehicles {
@@ -124,8 +143,10 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
             
 //            marker.icon = UIImage(named: "Ridecell_icon 50x-1")
             let img = UIImage(named: "Ridecell_icon-1")
-            let size = CGSize(width: 35, height: 41)
+            let size = CGSize(width: 30, height: 35)
             marker.icon = imageWithImage(image: img!, scaledToSize: size)
+            
+            
 //            marker.iconView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
             
 //
@@ -152,6 +173,9 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
             
             // Display marker on the map
             marker.map = mapView
+            markerVehicle[car] = marker
+            
+            
         }
     }
     
@@ -161,22 +185,27 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
     // MARK: Google Maps Delegates
     
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
-        let v = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-//        let title = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
-//        let title2 = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 25))
+        
+        let popUpView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
         let title = UILabel()
         let title2 = UILabel()
         let verticalStack = UIStackView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
         
-        title2.contentMode = .scaleToFill
-        title2.numberOfLines = 0
+        // Enlarge marker
+        let img = UIImage(named: "Ridecell_icon-1")
+        let size = CGSize(width: 40, height: 47)
+        marker.icon = imageWithImage(image: img!, scaledToSize: size)
         
-        v.addSubview(verticalStack)
+        popUpView.layer.cornerRadius = 8
+        popUpView.backgroundColor = .white
+        popUpView.alpha = 0.9
+        
+        popUpView.addSubview(verticalStack)
         verticalStack.translatesAutoresizingMaskIntoConstraints = false
-        verticalStack.leadingAnchor.constraint(equalTo: v.leadingAnchor, constant:5 ).isActive = true
-        verticalStack.trailingAnchor.constraint(equalTo: v.trailingAnchor, constant:-5 ).isActive = true
-        verticalStack.topAnchor.constraint(equalTo: v.topAnchor, constant:5 ).isActive = true
-        verticalStack.bottomAnchor.constraint(equalTo: v.bottomAnchor, constant:-5 ).isActive = true
+        verticalStack.leadingAnchor.constraint(equalTo: popUpView.leadingAnchor, constant:5 ).isActive = true
+        verticalStack.trailingAnchor.constraint(equalTo: popUpView.trailingAnchor, constant:-5 ).isActive = true
+        verticalStack.topAnchor.constraint(equalTo: popUpView.topAnchor, constant:5 ).isActive = true
+        verticalStack.bottomAnchor.constraint(equalTo: popUpView.bottomAnchor, constant:-5 ).isActive = true
 
         verticalStack.addSubview(title)
         title.text = marker.title
@@ -194,34 +223,19 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
         title2.trailingAnchor.constraint(equalTo: verticalStack.trailingAnchor).isActive = true
         title2.topAnchor.constraint(equalTo: title.bottomAnchor).isActive = true
         title2.bottomAnchor.constraint(equalTo: verticalStack.bottomAnchor).isActive = true
+        title2.contentMode = .scaleToFill
+        title2.numberOfLines = 0
         
-        v.layer.cornerRadius = 8
-//        v.layoutIfNeeded()
-//        verticalStack.layoutIfNeeded()
-
-        
-        
-        // Add blur behind the view
-        
-//        let blurEffect = UIBlurEffect(style: .extraLight)
-//        let blurEffectView = UIVisualEffectView(effect: blurEffect)
-//        blurEffectView.frame = v.bounds
-////        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        blurEffectView.layer.cornerRadius = 8
-//        v.insertSubview(blurEffectView, at: 0)
-//
-        
-        
-        v.backgroundColor = .white
-        v.alpha = 0.9
-        return v
+    
+        return popUpView
     }
     
-    
-    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
-        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+    func mapView(_ mapView: GMSMapView, didCloseInfoWindowOf marker: GMSMarker) {
+        let img = UIImage(named: "Ridecell_icon-1")
+        let size = CGSize(width: 30, height: 35)
+        marker.icon = imageWithImage(image: img!, scaledToSize: size)
     }
-  
+    
     
     // MARK:  ScrollView Delegates
     
@@ -229,81 +243,29 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
         let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
         pagingView.currentPage = Int(pageIndex)
         
-        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
-        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
-        
-        // vertical
-        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
-        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
-        
-        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
-        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
-        
-        /*
-         * below code changes the background color of view on paging the scrollview
-         */
-        //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
-        
-        
-        /*
-         * below code scales the imageview on paging the scrollview
-         */
-        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
-        
-        if(percentOffset.x > 0 && percentOffset.x <= 0.33) {
-            
-            slides[0].blankView.transform = CGAffineTransform(scaleX: (0.33-percentOffset.x)/0.33, y: (0.33-percentOffset.x)/0.33)
-            slides[1].blankView.transform = CGAffineTransform(scaleX: percentOffset.x/0.33, y: percentOffset.x/0.33)
-            
-        } else if(percentOffset.x > 0.33 && percentOffset.x <= 0.66) {
-            slides[1].blankView.transform = CGAffineTransform(scaleX: (0.66-percentOffset.x)/0.33, y: (0.66-percentOffset.x)/0.33)
-            slides[2].blankView.transform = CGAffineTransform(scaleX: percentOffset.x/0.66, y: percentOffset.x/0.66)
-            
-        }
-//        else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
-//            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
-//
-//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
-//            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
-//            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
-//        }
-    }
-    
-    
-    func createSlides() -> [Slide] {
-        let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide1.blankView.backgroundColor = .red
-        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide2.blankView.backgroundColor = .green
-        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
-        slide3.blankView.backgroundColor = .brown
-        return [slide1,slide2,slide3]
-    }
-
-    
-    
-    
-    // MARK: Helpers
-    func readJSONFromFile(_ fileName: String) ->  [[String: Any]]?
-    {
-        var json:  [[String: Any]]?
-        if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
-            do {
-                let fileUrl = URL(fileURLWithPath: path)
-                // Getting data from JSON file using the file URL
-                let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
-                json = try? JSONSerialization.jsonObject(with: data) as? [[String : Any]]
-            } catch {
-                // Handle error here
-            }
-        }
-        
-        return json
+        print("animatedto: ", markerVehicle[vehicles[Int(pageIndex)]]!.position)
+        mapView.animate(toLocation: markerVehicle[vehicles[Int(pageIndex)]]!.position)
     }
     
 }
 
+// MARK: Helpers
+func readJSONFromFile(_ fileName: String) ->  [[String: Any]]?
+{
+    var json:  [[String: Any]]?
+    if let path = Bundle.main.path(forResource: fileName, ofType: "json") {
+        do {
+            let fileUrl = URL(fileURLWithPath: path)
+            // Getting data from JSON file using the file URL
+            let data = try Data(contentsOf: fileUrl, options: .mappedIfSafe)
+            json = try? JSONSerialization.jsonObject(with: data) as? [[String : Any]]
+        } catch {
+            // Handle error here
+        }
+    }
+    
+    return json
+}
 func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
     UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
     image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
@@ -313,44 +275,46 @@ func imageWithImage(image:UIImage, scaledToSize newSize:CGSize) -> UIImage{
 }
 
 extension UIColor {
-    
-    // MARK: - Initialization
-    
-    
     convenience init?(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
         hexSanitized = hexSanitized.replacingOccurrences(of: "#", with: "")
-        
         var rgb: UInt32 = 0
         var r: CGFloat = 0.0
         var g: CGFloat = 0.0
         var b: CGFloat = 0.0
         var a: CGFloat = 1.0
-        
         let length = hexSanitized.count
         guard Scanner(string: hexSanitized).scanHexInt32(&rgb) else { return nil }
-        
         if length == 6 {
             r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
             g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
             b = CGFloat(rgb & 0x0000FF) / 255.0
-            
         } else if length == 8 {
             r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
             g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
             b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
             a = CGFloat(rgb & 0x000000FF) / 255.0
-            
         } else {
             return nil
         }
-        
         self.init(red: r, green: g, blue: b, alpha: a)
-        
     }
+}
+
+extension UIView {
     
-    
-   
-    
-    
+    func setGradientBackground(colorOne: UIColor, colorTwo: UIColor) {
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = [colorOne.cgColor, colorTwo.cgColor]
+        gradientLayer.locations = [0.0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1)
+        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0)
+        
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+}
+extension BinaryInteger {
+    var degreesToRadians: CGFloat { return CGFloat(Int(self)) * .pi / 180 }
 }

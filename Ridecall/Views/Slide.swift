@@ -10,15 +10,43 @@ import UIKit
 
 class Slide: UIView {
 
-    @IBOutlet weak var blankView: UIView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    var vehicle = Vehicle()
     
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var reserveButton: UIButton!
+    @IBAction func reserveButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Congratulation",
+                                      message: "You have reserve the \(vehicle.vehicle_type) sucessfuly",
+                                      preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction.init(title: "OK", style: .default, handler: nil))
+        UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
     }
-    */
-
+    
+    
+    func populate(_ v : Vehicle) {
+        
+        do {
+            let iconUrl =  try Data(contentsOf: URL(string:  v.vehicle_pic_absolute_url)!)
+            self.imageView.image = UIImage(data: iconUrl)
+        }catch{
+            print("error parsing image")
+        }
+        label1.text = v.is_available ? "Available" : "Not Avaialbe"
+        label1.textColor = v.is_available ?  UIColor(hex: "2ba527") : UIColor(hex: "a01919")
+        label2.text = String(describing:v.remaining_mileage)
+        label3.text = v.vehicle_make
+        label4.text = v.license_plate_number
+        
+        reserveButtonTapped(v)
+    }
+    
+    
+    
+    
+    
 }
