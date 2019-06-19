@@ -18,6 +18,9 @@
 		5903528822B870FD00FA1056 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5903528622B870FD00FA1056 /* LaunchScreen.storyboard */; };
 		590352AC22B8766C00FA1056 /* vehicles_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 590352AB22B8766C00FA1056 /* vehicles_data.json */; };
 		590352AE22B8885A00FA1056 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590352AD22B8885A00FA1056 /* Vehicle.swift */; };
+		590352B222B9913500FA1056 /* style.json in Resources */ = {isa = PBXBuildFile; fileRef = 590352B122B9913500FA1056 /* style.json */; };
+		590352B822B9D0B800FA1056 /* Slide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590352B722B9D0B800FA1056 /* Slide.swift */; };
+		590352BA22B9D0C900FA1056 /* Slide.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590352B922B9D0C900FA1056 /* Slide.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		5903529922B870FE00FA1056 /* RidecallUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidecallUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		590352AB22B8766C00FA1056 /* vehicles_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = vehicles_data.json; path = ../../../../Downloads/vehicles_data.json; sourceTree = "<group>"; };
 		590352AD22B8885A00FA1056 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		590352B122B9913500FA1056 /* style.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = style.json; sourceTree = "<group>"; };
+		590352B722B9D0B800FA1056 /* Slide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slide.swift; sourceTree = "<group>"; };
+		590352B922B9D0C900FA1056 /* Slide.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Slide.xib; sourceTree = "<group>"; };
 		AD5354070BBCCC7102CD6E87 /* Pods-RidecallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallTests.debug.xcconfig"; path = "Target Support Files/Pods-RidecallTests/Pods-RidecallTests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF19E130A522B50933A96AF8 /* Pods_RidecallUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidecallUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33DBA4D929EFD942648CC02 /* Pods-RidecallUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidecallUITests.debug.xcconfig"; path = "Target Support Files/Pods-RidecallUITests/Pods-RidecallUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -115,9 +121,10 @@
 				590352B022B8BE3800FA1056 /* Views */,
 				590352AF22B8BE3000FA1056 /* Model */,
 				590352AB22B8766C00FA1056 /* vehicles_data.json */,
+				590352B122B9913500FA1056 /* style.json */,
 				5903527A22B870F900FA1056 /* AppDelegate.swift */,
-				5903527E22B870F900FA1056 /* Main.storyboard */,
 				5903528422B870FD00FA1056 /* Assets.xcassets */,
+				5903527E22B870F900FA1056 /* Main.storyboard */,
 				5903528622B870FD00FA1056 /* LaunchScreen.storyboard */,
 				5903528922B870FD00FA1056 /* Info.plist */,
 				5903528122B870F900FA1056 /* Ridecall.xcdatamodeld */,
@@ -137,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				5903527C22B870F900FA1056 /* ViewController.swift */,
+				590352B722B9D0B800FA1056 /* Slide.swift */,
+				590352B922B9D0C900FA1056 /* Slide.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -274,8 +283,10 @@
 			files = (
 				5903528822B870FD00FA1056 /* LaunchScreen.storyboard in Resources */,
 				5903528522B870FD00FA1056 /* Assets.xcassets in Resources */,
+				590352B222B9913500FA1056 /* style.json in Resources */,
 				590352AC22B8766C00FA1056 /* vehicles_data.json in Resources */,
 				5903528022B870F900FA1056 /* Main.storyboard in Resources */,
+				590352BA22B9D0C900FA1056 /* Slide.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +401,7 @@
 				5903527D22B870F900FA1056 /* ViewController.swift in Sources */,
 				5903527B22B870F900FA1056 /* AppDelegate.swift in Sources */,
 				5903528322B870F900FA1056 /* Ridecall.xcdatamodeld in Sources */,
+				590352B822B9D0B800FA1056 /* Slide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

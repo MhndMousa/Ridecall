@@ -15,6 +15,7 @@
 			dependencies = (
 			);
 			name = GoogleMaps;
+			productName = GoogleMaps;
 		};
 /* End PBXAggregateTarget section */
 
@@ -67,7 +68,7 @@
 		551F63664537853F32071E13FE4CC4FF /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMapsBase.framework; path = Base/Frameworks/GoogleMapsBase.framework; sourceTree = "<group>"; };
 		5BB5B803577422BC607CE9EC341CB39D /* Pods-RidecallTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RidecallTests.modulemap"; sourceTree = "<group>"; };
 		5BEF52437C1E4AB431C3FBA86771C36E /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GoogleMaps.framework; path = Maps/Frameworks/GoogleMaps.framework; sourceTree = "<group>"; };
-		5C262AE886D265E91688A08725ABDBA5 /* Pods_RidecallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RidecallTests.framework; path = "Pods-RidecallTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C262AE886D265E91688A08725ABDBA5 /* Pods_RidecallTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidecallTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		626EF40C99993EA89FA7746ED92ED780 /* Pods-RidecallTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RidecallTests-dummy.m"; sourceTree = "<group>"; };
 		6DCA1A109719184BE4DD089E5E03BF03 /* Pods-RidecallUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RidecallUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		79A22CA5835B60C84116CE415041EFF9 /* Pods-RidecallUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RidecallUITests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -75,17 +76,17 @@
 		8CF7DB52D17E469E2E47012C89EA23C1 /* Pods-RidecallTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RidecallTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		948879C1265618BAE4E140962734F453 /* Pods-Ridecall-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ridecall-acknowledgements.plist"; sourceTree = "<group>"; };
 		9D4310BBD63C9191C3CC14E0367961C3 /* Pods-RidecallTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RidecallTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		ACFD3B52636ADF82326E819D81AA028B /* Pods-RidecallTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidecallTests.release.xcconfig"; sourceTree = "<group>"; };
 		AD4A23D7B2B33674810B0E80BBA2BB4B /* Pods-Ridecall-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Ridecall-Info.plist"; sourceTree = "<group>"; };
 		B5A52201F132ADA34423114FDDE611DE /* Pods-RidecallUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RidecallUITests-Info.plist"; sourceTree = "<group>"; };
-		B8AF74F102F70A2D9AEFCA4E1A36D7D7 /* Pods_RidecallUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_RidecallUITests.framework; path = "Pods-RidecallUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8AF74F102F70A2D9AEFCA4E1A36D7D7 /* Pods_RidecallUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RidecallUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF6E6F7CAF3BD16ECD65C75D73B2234 /* Pods-Ridecall-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Ridecall-resources.sh"; sourceTree = "<group>"; };
 		BC2B92102A2827AE262417471A90DB6F /* Pods-RidecallTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidecallTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C3A2592989B022113F47D7A74EF11292 /* Pods-RidecallUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RidecallUITests-umbrella.h"; sourceTree = "<group>"; };
 		C75D77AE0DD28BB750657BF82DD7EF3F /* Pods-RidecallUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RidecallUITests-dummy.m"; sourceTree = "<group>"; };
 		CC0008749F65B05177801A1B72F2F1EC /* GoogleMaps.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleMaps.xcconfig; sourceTree = "<group>"; };
-		CF33C3FB0A9C2B920762C0912C1E284D /* Pods_Ridecall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Ridecall.framework; path = "Pods-Ridecall.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF33C3FB0A9C2B920762C0912C1E284D /* Pods_Ridecall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ridecall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D76C6CA125B56091F03626BB7F1D2A1B /* Pods-RidecallUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-RidecallUITests.modulemap"; sourceTree = "<group>"; };
 		E0C2EB73E0AF5DD378837AD0985C28FF /* Pods-Ridecall.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Ridecall.modulemap"; sourceTree = "<group>"; };
 		EFB8C39CE887D9460D9D00655B12A433 /* Pods-RidecallUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidecallUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -215,7 +216,6 @@
 				635C391EBEDEECEBED7C587C09F80C29 /* Maps */,
 				2C4EB33A076BB7654667F327222F2A96 /* Support Files */,
 			);
-			name = GoogleMaps;
 			path = GoogleMaps;
 			sourceTree = "<group>";
 		};
@@ -381,6 +381,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1020;
+				TargetAttributes = {
+					F034CE7A61C6532159BEF2E333E81F66 = {
+						LastSwiftMigration = 1020;
+					};
+				};
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -518,6 +523,7 @@
 			baseConfigurationReference = 4B25D71ED24ACBD9392DCAE300C12166 /* Pods-Ridecall.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -545,6 +551,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -734,6 +742,7 @@
 			baseConfigurationReference = F0BE4841ADFFE8144D7D21C42D954846 /* Pods-Ridecall.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -761,6 +770,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
