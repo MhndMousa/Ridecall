@@ -12,6 +12,9 @@ import GoogleMaps
 class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
     
     var vehicles = [Vehicle]()
+    var slides = [Slide]()
+    let pagingView = UIPageControl()
+    
     @IBOutlet weak var infoView: UIView!
     
     override func viewDidLoad() {
@@ -22,24 +25,30 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
             print(vechicle)
             vehicles.append(Vehicle(vechicle))
         }
+        slides = createSlides()
         createMap()
         configInfoView()
+        
         
     }
     
     // MARK:  Horizontal scroll
     func configInfoView(){
         let scrollView = UIScrollView()
+        scrollView.delegate  = self
         scrollView.isPagingEnabled = true
         scrollView.showsVerticalScrollIndicator = true
         
         scrollView.contentSize = CGSize(width: infoView.layer.bounds.width * 3, height: infoView.layer.bounds.height)
         scrollView.backgroundColor = .blue
         
-        let pagingView = UIPageControl()
         pagingView.numberOfPages = 3
-        pagingView.currentPageIndicatorTintColor = .green
-//        pagingView .
+        pagingView.currentPageIndicatorTintColor = .black
+//        pagingView.pageIndicatorTintColor = .gray
+
+        
+        
+        
         
         infoView.addSubview(scrollView)
         infoView.addSubview(pagingView)
@@ -56,6 +65,12 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
         pagingView.topAnchor.constraint(equalTo: infoView.topAnchor).isActive = true
         pagingView.centerXAnchor.constraint(equalTo: infoView.centerXAnchor).isActive = true
 
+        //Add slides
+        for i in 0 ..< slides.count {
+            slides[i].frame = CGRect(x: view.frame.width * CGFloat(i), y: 0, width: infoView.frame.width, height: infoView.frame.height)
+            slides[i].backgroundColor = .clear
+            scrollView.addSubview(slides[i])
+        }
         
     }
 
@@ -210,8 +225,61 @@ class ViewController: UIViewController,GMSMapViewDelegate,UIScrollViewDelegate {
     
     // MARK:  ScrollView Delegates
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = round(scrollView.contentOffset.x/view.frame.width)
+        pagingView.currentPage = Int(pageIndex)
+        
+        let maximumHorizontalOffset: CGFloat = scrollView.contentSize.width - scrollView.frame.width
+        let currentHorizontalOffset: CGFloat = scrollView.contentOffset.x
+        
+        // vertical
+        let maximumVerticalOffset: CGFloat = scrollView.contentSize.height - scrollView.frame.height
+        let currentVerticalOffset: CGFloat = scrollView.contentOffset.y
+        
+        let percentageHorizontalOffset: CGFloat = currentHorizontalOffset / maximumHorizontalOffset
+        let percentageVerticalOffset: CGFloat = currentVerticalOffset / maximumVerticalOffset
+        
+        /*
+         * below code changes the background color of view on paging the scrollview
+         */
+        //        self.scrollView(scrollView, didScrollToPercentageOffset: percentageHorizontalOffset)
+        
+        
+        /*
+         * below code scales the imageview on paging the scrollview
+         */
+        let percentOffset: CGPoint = CGPoint(x: percentageHorizontalOffset, y: percentageVerticalOffset)
+        
+        if(percentOffset.x > 0 && percentOffset.x <= 0.33) {
+            
+            slides[0].blankView.transform = CGAffineTransform(scaleX: (0.33-percentOffset.x)/0.33, y: (0.33-percentOffset.x)/0.33)
+            slides[1].blankView.transform = CGAffineTransform(scaleX: percentOffset.x/0.33, y: percentOffset.x/0.33)
+            
+        } else if(percentOffset.x > 0.33 && percentOffset.x <= 0.66) {
+            slides[1].blankView.transform = CGAffineTransform(scaleX: (0.66-percentOffset.x)/0.33, y: (0.66-percentOffset.x)/0.33)
+            slides[2].blankView.transform = CGAffineTransform(scaleX: percentOffset.x/0.66, y: percentOffset.x/0.66)
+            
+        }
+//        else if(percentOffset.x > 0.50 && percentOffset.x <= 0.75) {
+//            slides[2].imageView.transform = CGAffineTransform(scaleX: (0.75-percentOffset.x)/0.25, y: (0.75-percentOffset.x)/0.25)
+//            slides[3].imageView.transform = CGAffineTransform(scaleX: percentOffset.x/0.75, y: percentOffset.x/0.75)
+//
+//        } else if(percentOffset.x > 0.75 && percentOffset.x <= 1) {
+//            slides[3].imageView.transform = CGAffineTransform(scaleX: (1-percentOffset.x)/0.25, y: (1-percentOffset.x)/0.25)
+//            slides[4].imageView.transform = CGAffineTransform(scaleX: percentOffset.x, y: percentOffset.x)
+//        }
+    }
     
     
+    func createSlides() -> [Slide] {
+        let slide1:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        slide1.blankView.backgroundColor = .red
+        let slide2:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        slide2.blankView.backgroundColor = .green
+        let slide3:Slide = Bundle.main.loadNibNamed("Slide", owner: self, options: nil)?.first as! Slide
+        slide3.blankView.backgroundColor = .brown
+        return [slide1,slide2,slide3]
+    }
 
     
     
@@ -281,6 +349,8 @@ extension UIColor {
         
     }
     
+    
+   
     
     
 }

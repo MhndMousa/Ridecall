@@ -16,13 +16,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-FY-8Dd">
-                    <rect key="frame" x="67" y="246" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-FY-8Dd">
+                    <rect key="frame" x="0.0" y="728" width="50" height="50"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="iuA-uv-RA8"/>
+                        <constraint firstAttribute="width" constant="50" id="qlq-gL-yLz"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="sGC-FX-g3f" firstAttribute="bottom" secondItem="9DU-FY-8Dd" secondAttribute="bottom" id="Jfi-rG-Lpv"/>
+                <constraint firstItem="9DU-FY-8Dd" firstAttribute="leading" secondItem="sGC-FX-g3f" secondAttribute="leading" id="M6C-pS-chi"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="sGC-FX-g3f"/>
             <connections>
                 <outlet property="blankView" destination="9DU-FY-8Dd" id="WR6-oC-JUe"/>
