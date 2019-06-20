@@ -1,5 +1,6 @@
-# Ridecell Challenge
+# Ridecell
 
+![ScreenShot](images/screen_shot.png)
 
 ### Functionalities
 
