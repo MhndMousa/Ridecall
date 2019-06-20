@@ -1,6 +1,7 @@
+
 # Ridecell
 
-![ScreenShot](images/screen_shot.png)
+<img src="images/screen_shot.png" height="650px" />
 
 ### Functionalities
 
