@@ -135,6 +135,8 @@
 		590352AF22B8BE3000FA1056 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				590352B722B9D0B800FA1056 /* Slide.swift */,
+				590352B922B9D0C900FA1056 /* Slide.xib */,
 				590352AD22B8885A00FA1056 /* Vehicle.swift */,
 			);
 			path = Model;
@@ -144,8 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				5903527C22B870F900FA1056 /* ViewController.swift */,
-				590352B722B9D0B800FA1056 /* Slide.swift */,
-				590352B922B9D0C900FA1056 /* Slide.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";

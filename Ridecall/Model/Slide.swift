@@ -15,7 +15,8 @@ class Slide: UIView {
     @IBOutlet weak var label2: UILabel!
     @IBOutlet weak var label3: UILabel!
     @IBOutlet weak var label4: UILabel!
-    var vehicle = Vehicle()
+    private var vehicle = Vehicle()
+    
     
     @IBOutlet weak var reserveButton: UIButton!
     @IBAction func reserveButtonTapped(_ sender: Any) {
@@ -28,8 +29,20 @@ class Slide: UIView {
     }
     
     
-    func populate(_ v : Vehicle) {
-        
+    func insertAndUpdate(vehicle: Vehicle){
+        self.insert(vehicle: vehicle)
+        self.updateView(withInfoOf: vehicle)
+    }
+    
+    // Setter
+    func insert(vehicle: Vehicle){
+        self.vehicle = vehicle
+    }
+    
+
+    // Updates the slide view with information of the vehicle
+    func updateView(withInfoOf v : Vehicle) {
+
         do {
             let iconUrl =  try Data(contentsOf: URL(string:  v.vehicle_pic_absolute_url)!)
             self.imageView.image = UIImage(data: iconUrl)
@@ -41,6 +54,7 @@ class Slide: UIView {
         label2.text = String(describing:v.remaining_mileage)
         label3.text = v.vehicle_make
         label4.text = v.license_plate_number
+        self.reserveButton.layer.cornerRadius = 8
         
         reserveButtonTapped(v)
     }

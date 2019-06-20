@@ -17,8 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ifd-xz-rHt">
-                    <rect key="frame" x="9" y="69" width="357" height="151"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ifd-xz-rHt">
+                    <rect key="frame" x="9" y="58" width="357" height="159"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXC-sN-Wmd">
                             <rect key="frame" x="0.0" y="0.0" width="357" height="125"/>
@@ -63,7 +63,7 @@
                                             <viewLayoutGuide key="safeArea" id="8ri-vv-cZE"/>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01Y-uY-lyW">
-                                            <rect key="frame" x="0.0" y="66.666666666666657" width="109" height="25"/>
+                                            <rect key="frame" x="0.0" y="66.666666666666671" width="109" height="25"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Vehicle Type: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXb-ro-YdD">
                                                     <rect key="frame" x="0.0" y="0.0" width="78" height="25"/>
@@ -110,9 +110,9 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Naz-Di-ytq">
-                            <rect key="frame" x="0.0" y="125" width="357" height="26"/>
+                            <rect key="frame" x="0.0" y="130" width="357" height="29"/>
                             <color key="backgroundColor" red="0.4935879111" green="0.72017502779999998" blue="0.34893170000000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="12"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="14"/>
                             <state key="normal" title="Reserve this car">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -121,14 +121,14 @@
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <viewLayoutGuide key="safeArea" id="3gs-Hf-UYF"/>
                 </stackView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Ifd-xz-rHt" firstAttribute="top" secondItem="sGC-FX-g3f" secondAttribute="top" constant="25" id="C9i-Or-zHX"/>
+                <constraint firstItem="Ifd-xz-rHt" firstAttribute="top" secondItem="sGC-FX-g3f" secondAttribute="top" constant="14" id="C9i-Or-zHX"/>
                 <constraint firstAttribute="trailing" secondItem="Ifd-xz-rHt" secondAttribute="trailing" constant="9" id="DMr-Br-c9f"/>
                 <constraint firstItem="Ifd-xz-rHt" firstAttribute="leading" secondItem="sGC-FX-g3f" secondAttribute="leading" constant="9" id="WaE-Il-sA5"/>
             </constraints>
@@ -141,7 +141,7 @@
                 <outlet property="label4" destination="vzg-Es-tRR" id="eGO-kj-ry2"/>
                 <outlet property="reserveButton" destination="Naz-Di-ytq" id="QPC-dJ-q7T"/>
             </connections>
-            <point key="canvasLocation" x="-372" y="50"/>
+            <point key="canvasLocation" x="-414" y="13"/>
         </view>
     </objects>
     <resources>
