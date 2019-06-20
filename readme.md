@@ -3,10 +3,12 @@
 
 ### Functionalities
 
-[x] Displays the annotated vehicles on Google Map
-[x] map opens to San Francisco on launched
-[x] Selected annotation show the car's information
-[x] Scroll view at the bottom to choose vehicles and update to its location on the map
+- [x] Displays the annotated vehicles on Google Map
+- [x] map opens to San Francisco on launched
+
+- [x] Selected annotation show the car's information
+
+- [x] Scroll view at the bottom to choose vehicles and update to its location on the map
 
 
 ### Technologies used:
